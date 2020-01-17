@@ -1,5 +1,4 @@
-#!/bin/sh
-
+echo "      "
 echo "Welcome to your favourite Burger Shop!!"
 echo ":)"
 i=1
@@ -33,37 +32,105 @@ do
       break
     fi
 		;;
+
 	2)
-		echo "Please place your order here!!"
-    echo "Enter code if item you want"
-    read price
+	  echo "Please place your order here!!"
+    echo "Enter code of item you want"
+    counter=1
+    
     money=0
-    if [ $price == 1 ]
-    then
-        money=$(( $money+30 ))
-        echo "Your amount is $money"
-
-        echo "Do you want to buy PRESS 1"
-        read ch
-        if [ ch==1 ]
+    while [counter == 1]
+    do
+        read price
+        
+        if [ $price == 1 ]
         then
-          i=1;
+            counter=$(($counter-1));
+            money=$(( $money+30 ))
+            echo "Your amount is $money"
+            echo "  "
+            echo "If you want to buy more PRESS 1"
+            read ch1
+            if [ ch1 == 1 ]
+            then
+              counter=1;
+            fi
+
+        else if [$price == 2 ]
+        then
+            counter=$(($counter-1));
+            money=$(( $money+45 ))
+            echo "Your amount is $money"
+            echo "  "
+            echo "Do you want to buy PRESS 1"
+            read ch2
+            if [ ch2==1 ]
+            then
+              counter=1;
+            fi
+
+        else if [$price == 3 ]
+        then
+            counter=$(($counter-1));
+            money=$(( $money+50 ))
+            echo "Your amount is $money"
+            echo "  "
+            echo "Do you want to buy PRESS 1"
+            read ch3
+            if [ ch3==1 ]
+            then
+              counter=1;
+            fi
+
+        else if [$price == 4 ]
+        then
+            counter=$(($counter-1));
+            money=$(( $money+60 ))
+            echo "Your amount is $money"
+            echo "  "
+            echo "Do you want to buy PRESS 1"
+            read ch4
+            if [ ch4==1 ]
+            then
+              counter=1;
+            fi
+
+        else if [$price == 5 ]
+        then
+            counter=$(($counter-1));
+            money=$(( $money+30 ))
+            echo "Your amount is $money"
+            echo "  "
+            echo "Do you want to buy PRESS 1"
+            read ch5
+            if [ ch5==1 ]
+            then
+              counter=1;
+            fi
+
+        else if [$price == 6 ]
+        then
+            counter=$(($counter-1));
+            money=$(( $money+50 ))
+            echo "Your amount is $money"
+            echo "  "
+            echo "Do you want to buy PRESS 1"
+            read ch6
+            if [ ch6==1 ]
+            then
+              counter=1;
+            fi
+
         else
-          break
+            echo " Wrong Option!!"
         fi
+  done
+  ;;
 
-    else if [$price == 2 ]
-        money=$(( $money+45 ))
-        echo "Your amount is $money"
-
-  
-    break
-    fi
-    ;;
 	*)
-		echo "Sorry, I don't understand"
+		echo "Sorry, We don't understand"
 		;;
   esac
 done
-echo 
+
 echo "That's all folks!"
